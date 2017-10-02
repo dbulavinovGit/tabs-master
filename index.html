@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Project Title</title>
+	<link media="all" rel="stylesheet" href="css/main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.12.4.min.js" defer><\/script>')</script>
+	<script src="js/main.js" defer></script>
+</head>
+<body>
+	
+	<div id="wrapper">
+		<h1>Links tabs</h1>
+		<div class="tab-hodler">
+			<ul class="tab-list">
+				<li>
+					<a href="#tab01" class="opener active">Tab1</a>
+				</li>
+				<li>
+					<a href="#tab02" class="opener">Tab2</a>
+				</li>
+				<li>
+					<a href="#tab03" class="opener">Tab3</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="tab01" class="tab">
+					<h2>1111 Tab content</h2>
+				</div>
+				<div id="tab02" class="tab">
+					<h2>222 Tab content</h2>
+				</div>
+				<div id="tab03" class="tab">
+					<h2>333 Tab content</h2>
+				</div>
+			</div>
+		</div>
+		<br>
+		<hr>
+		<br>
+		<h1>Ckeckboxes tabs</h1>
+		<div class="tab-hodler">
+			<ul class="tab-list">
+				<li>
+					<label class="custom-check">
+						<input type="checkbox" data-target="#tab1">
+						<span class="fake-input"></span>
+						<span class="fake-label">Tab1</span>
+					</label>
+				</li>
+				<li>
+					<label class="custom-check">
+						<input type="checkbox" data-target="#tab2">
+						<span class="fake-input"></span>
+						<span class="fake-label">Tab2</span>
+					</label>
+				</li>
+				<li>
+					<label class="custom-check">
+						<input type="checkbox" data-target="#tab3" class="active">
+						<span class="fake-input"></span>
+						<span class="fake-label">Tab3</span>
+					</label>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="tab1" class="tab">
+					<h2>1111 Tab content</h2>
+				</div>
+				<div id="tab2" class="tab">
+					<h2>222 Tab content</h2>
+				</div>
+				<div id="tab3" class="tab">
+					<h2>333 Tab content</h2>
+				</div>
+			</div>
+		</div>
+		<br>
+		<hr>
+		<br>
+		<h1>Radio tabs</h1>
+		<div class="tab-hodler">
+			<ul class="tab-list">
+				<li>
+					<label class="custom-check">
+						<input type="radio" data-target="#tab11">
+						<span class="fake-input"></span>
+						<span class="fake-label">Tab1</span>
+					</label>
+				</li>
+				<li>
+					<label class="custom-check">
+						<input type="radio" data-target="#tab22">
+						<span class="fake-input"></span>
+						<span class="fake-label">Tab2</span>
+					</label>
+				</li>
+				<li>
+					<label class="custom-check">
+						<input type="radio" data-target="#tab33" class="active">
+						<span class="fake-input"></span>
+						<span class="fake-label">Tab3</span>
+					</label>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="tab11" class="tab">
+					<h2>1111 Tab content</h2>
+				</div>
+				<div id="tab22" class="tab">
+					<h2>222 Tab content</h2>
+				</div>
+				<div id="tab33" class="tab">
+					<h2>333 Tab content</h2>
+				</div>
+			</div>
+		</div>
+		<br>
+		<hr>
+		<br>
+		<h1>Select tabs</h1>
+		<div class="tab-hodler">
+			<select data-tab="#tab001">
+				<option value="#tab001">tab1</option>
+				<option value="#tab002">tab2</option>
+				<option value="#tab003">tab3</option>
+			</select>
+			<div class="tab-content">
+				<div id="tab001" class="tab">
+					<h2>1111 Tab content</h2>
+				</div>
+				<div id="tab002" class="tab">
+					<h2>222 Tab content</h2>
+				</div>
+				<div id="tab003" class="tab">
+					<h2>333 Tab content</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
