@@ -15,7 +15,8 @@ function initTab() {
 	});
 	jQuery('.tab-hodler').tab({
 		opener: 'select',
-		dataAttr: 'data-tab'
+		dataAttr: 'data-tab',
+		event: 'change',
 	});
 }
 
@@ -26,6 +27,7 @@ function initTab() {
 			opener: 'input[type=checkbox]',
 			slide: '.tab',
 			dataAttr: 'data-target',
+			event: 'click',
 			openDefault: true,
 		}, options);
 		this.init();
@@ -65,11 +67,9 @@ function initTab() {
 
 			if (this.isOpenerSelect()) {
 				this.opendDefaultTab($(this.opener.attr(this.options.dataAttr)));
-
-				this.opener.on('change', this.eventHandler);
-			} else {
-				this.opener.on('click', this.eventHandler);
 			}
+
+			this.opener.on(this.options.event, this.eventHandler);
 		},
 		opendDefaultTab: function(activeTab) {
 			if (this.options.openDefault) {
