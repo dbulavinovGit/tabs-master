@@ -94,11 +94,10 @@ function initTab() {
 			opener.addClass(this.options.activeClass);
 		},
 		destroy: function() {
-			if(this.isOpenerSelect()) {
-				this.opener.off('click', this.eventHandler)
-			} else {
-				this.opener.off('change', this.eventHandler);
-			}
+			this.opener.off(this.options.event, this.eventHandler);
+			this.tabs.css({
+				display: 'none'
+			});
 		}
 	};
 
