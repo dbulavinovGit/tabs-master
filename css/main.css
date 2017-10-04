@@ -636,10 +636,11 @@ select {
   line-height: 0;
   z-index: 1; }
 
-.tab-content {
+.tab-content .tab {
+  display: none;
   background: #ccc;
   border-radius: .4em;
   padding: 15px 25px; }
-  .tab-content .tab {
-    display: none; }
+  .tab-content .tab.active {
+    display: block; }
 /*# sourceMappingURL=main.css.map */
