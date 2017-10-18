@@ -521,6 +521,8 @@ input[type='submit'] {
   .tab-list li {
     width: 200px;
     margin: 0 10px; }
+    .tab-list li.active .opener {
+      background: #ccc; }
 
 [type="radio"],
 [type="checkbox"] {

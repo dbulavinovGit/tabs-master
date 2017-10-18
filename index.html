@@ -17,13 +17,18 @@
 				<li>
 					<a href="#tab01" class="opener">Tab1</a>
 				</li>
-				<li>
+				<li class="active">
 					<a href="#tab02" class="opener">Tab2</a>
 				</li>
 				<li>
 					<a href="#tab03" class="opener">Tab3</a>
 				</li>
 			</ul>
+			<select>
+				<option data="1">tab1</option>
+				<option data="2">tab2</option>
+				<option  data="3">tab3</option>
+			</select>
 			<div class="tab-content">
 				<div id="tab01" class="tab">
 					<h2>1111 Tab content</h2>
@@ -40,7 +45,7 @@
 		<hr>
 		<br>
 		<h1>Ckeckboxes tabs</h1>
-		<div class="tab-hodler">
+		<div class="tab-hodler2">
 			<ul class="tab-list">
 				<li>
 					<label class="custom-check">
@@ -80,7 +85,7 @@
 		<hr>
 		<br>
 		<h1>Radio tabs</h1>
-		<div class="tab-hodler">
+		<div class="tab-hodler3">
 			<ul class="tab-list">
 				<li>
 					<label class="custom-check">
@@ -91,14 +96,14 @@
 				</li>
 				<li>
 					<label class="custom-check">
-						<input type="radio" data-target="#tab22">
+						<input type="radio" data-target="#tab22" class="active">
 						<span class="fake-input"></span>
 						<span class="fake-label">Tab2</span>
 					</label>
 				</li>
 				<li>
 					<label class="custom-check">
-						<input type="radio" data-target="#tab33" class="active">
+						<input type="radio" data-target="#tab33">
 						<span class="fake-input"></span>
 						<span class="fake-label">Tab3</span>
 					</label>
@@ -119,25 +124,6 @@
 		<br>
 		<hr>
 		<br>
-		<h1>Select tabs</h1>
-		<div class="select-tab-hodler">
-			<select data-tab="#tab002">
-				<option value="#tab001">tab1</option>
-				<option value="#tab002" selected>tab2</option>
-				<option value="#tab003">tab3</option>
-			</select>
-			<div class="tab-content">
-				<div id="tab001" class="tab">
-					<h2>1111 Tab content</h2>
-				</div>
-				<div id="tab002" class="tab">
-					<h2>222 Tab content</h2>
-				</div>
-				<div id="tab003" class="tab">
-					<h2>333 Tab content</h2>
-				</div>
-			</div>
-		</div>
 	</div>
 </body>
 </html>
