@@ -4,6 +4,7 @@ jQuery(function() {
 
 function initTab() {
 	var select = jQuery("select");
+	var options = select.children();
 
 	jQuery('.tab-hodler').tab({
 		opener: '.opener',
@@ -15,13 +16,10 @@ function initTab() {
 			select.on('change', function() {
 				var item = jQuery(this)
 				var activeIndex = item.children('option:selected').index();
+
 				self.getActiveItems(activeIndex);
 				self.toggleTab();
 			});
-		},
-		onShow: function(self) {
-			select.children('option');
-			select.children().eq(self.activeIndex).attr('selected', 'selected')
 		}
 	});
 	jQuery('.tab-hodler2').tab({
@@ -80,6 +78,7 @@ function initTab() {
 				this.activeIndex = this.getClassTarget(this.openers).index(this.getClassTarget(this.openers).filter('.' + this.options.activeClass));
 				this.getActiveItems(this.activeIndex);
 				this.showTab();
+				this.makeCallback('onShowDefault', this);
 			}
 		},
 		isOpened: function() {
