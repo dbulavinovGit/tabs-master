@@ -15,10 +15,9 @@ function initTab() {
 		onInit: function(self) {
 			select.on('change', function() {
 				var item = jQuery(this)
-				var activeIndex = item.children('option:selected').index();
-
-				self.getActiveItems(activeIndex);
-				self.toggleTab();
+				self.activeIndex = item.children('option:selected').index();
+				self.getActiveItems();
+				self.switchTab();
 			});
 		}
 	});
@@ -40,7 +39,7 @@ function initTab() {
 			slide: '.tab',
 			dataAttr: 'data-target',
 			event: 'click',
-			hideOnSecondClick: false,
+			hideOnSecondClick: true,
 			openDefault: true,
 		}, options);
 		this.init();
@@ -59,37 +58,55 @@ function initTab() {
 			this.holder = $(this.options.holder);
 			this.openers = this.holder.find(this.options.opener);
 			this.tabs = this.holder.find(this.options.slide);
+			this.activeIndex = this.getClassTarget(this.openers).index(this.getClassTarget(this.openers).filter('.' + this.options.activeClass));
+			this.getActiveItems();
 		},
 		attachEvents: function() {
 			var self = this;
+			this.index = this.activeIndex;
+			this.isOpen = true;
 
 			this.eventHandler = function(e) {
 				e.preventDefault();
 				self.currentOpener = e.target;
 				self.activeIndex = self.getClassTarget(self.openers).index(self.getClassTarget($(self.currentOpener)));
-				self.getActiveItems(self.activeIndex);
-				self.toggleTab();
+				self.getActiveItems();
+				self.switchTab();
 			}
 
 			this.openers.on(this.options.event, this.eventHandler);
 		},
+		switchTab: function() {
+			if(this.activeIndex === this.index) {
+				if (this.options.hideOnSecondClick) {
+					if(this.isOpen) {
+						this.hideTab();
+						this.isOpen = false;
+					} else {
+						this.showTab();
+						this.isOpen = true;
+					}
+				} else {
+					this.showTab();
+				}
+			} else {
+				this.hideTab();
+				this.showTab();
+				this.index = this.activeIndex;
+			}
+		},
 		opendDefaultTab: function() {
 			if (this.options.openDefault) {
-				this.activeIndex = this.getClassTarget(this.openers).index(this.getClassTarget(this.openers).filter('.' + this.options.activeClass));
-				this.getActiveItems(this.activeIndex);
 				this.showTab();
 				this.makeCallback('onShowDefault', this);
 			}
 		},
-		isOpened: function() {
-			return this.activeLink.hasClass(this.options.activeClass);
-		},
 		getClassTarget: function(item) {
 			return this.options.classToParent ? item.parent() : item;
 		},
-		getActiveItems: function(index) {
-			this.activeTab = $(this.openers.eq(index).attr(this.options.dataAttr));
-			this.activeLink = this.getClassTarget(this.openers.eq(index));
+		getActiveItems: function() {
+			this.activeTab = $(this.openers.eq(this.activeIndex).attr(this.options.dataAttr));
+			this.activeLink = this.getClassTarget(this.openers.eq(this.activeIndex));
 		},
 		showTab: function() {
 			this.activeTab.addClass(this.options.activeClass);
@@ -100,19 +117,6 @@ function initTab() {
 			this.getClassTarget(this.openers).removeClass(this.options.activeClass);
 			this.tabs.removeClass(this.options.activeClass);
 			this.makeCallback('onHide', this);
-		},
-		toggleTab: function() {
-			if(this.options.hideOnSecondClick) {
-				if(this.isOpened()) {
-					this.hideTab();
-				} else {
-					this.hideTab();
-					this.showTab();
-				}
-			} else {
-				this.hideTab();
-				this.showTab();
-			}
 		},
 		destroy: function() {
 			this.openers.off(this.options.event, this.eventHandler);
